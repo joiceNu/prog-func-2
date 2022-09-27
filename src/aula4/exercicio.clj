@@ -18,10 +18,20 @@
   (map #(add-full-name % (full-name (:first-name %) (:last-name %))) clientes)
   )
 
-(add-full-name-clientes data/clients)
+(comment (add-full-name-clientes data/clients))
 
 ;; retornar clientes que tem `:age` maior que 35. Usar tanto `filter` quanto `remove`.
+(defn clientes-mais-que-35-anos
+  [clientes]
+  (filter #(< (:age %) 35) clientes)
+  )
 
+(defn clientes-mais-que-35-anos
+  [clientes]
+  (sort-by :age (remove #(< (:age %) 35) clientes))
+  )
+
+  (clientes-mais-que-35-anos data/clients)
 
 ;; retornar um mapa, tendo a chave do item como o id do produto e o valor sendo a quantidade total comprada desse item.
 
