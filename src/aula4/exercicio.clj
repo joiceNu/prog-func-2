@@ -4,6 +4,21 @@
 
 ;; retornar o vetor de clientes a chave `:full-name` adicionada nos mapas de clientes. (full-name deve ser a concatenacao do `:first-name` com o `:last-name`).
 
+(defn full-name
+  [first last]
+  (str first " " last))
+
+(defn add-full-name
+  [mapa full-name]
+  (assoc mapa :full-name full-name)
+  )
+
+(defn add-full-name-clientes
+  [clientes]
+  (map #(add-full-name % (full-name (:first-name %) (:last-name %))) clientes)
+  )
+
+(add-full-name-clientes data/clients)
 
 ;; retornar clientes que tem `:age` maior que 35. Usar tanto `filter` quanto `remove`.
 
