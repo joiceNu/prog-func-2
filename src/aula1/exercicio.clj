@@ -36,4 +36,13 @@
 
 (add-compra-cliente data/cliente data/compras)
 ;; adiciona um novo item de compra
+
+(defn add-item-compra
+  [compras item]
+  (conj compras item))
+
+(add-item-compra data/compras {:item "bolo" :valor 20})
+
 ;; retorna o nome do cliente
+
+(defn retorna-)
