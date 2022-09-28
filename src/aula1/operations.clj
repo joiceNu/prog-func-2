@@ -1,5 +1,5 @@
-(ns maps.operations
-  (:require [maps.data :refer [cliente]]))
+(ns aula1.operations
+  (:require [aula1.data :refer [cliente]]))
 
 ;; retorna campo
 (get cliente :nome)

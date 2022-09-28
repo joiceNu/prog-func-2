@@ -33,10 +33,27 @@
 
   (clientes-mais-que-35-anos data/clients)
 
-;; retornar um mapa, tendo a chave do item como o id do produto e o valor sendo a quantidade total comprada desse item.
+;; retornar um mapa,
+;; tendo a chave do item como o id do produto e o valor
+;; sendo a quantidade total comprada desse item.
+
 
 
 ;; retornar um mapa de compras, onde a chave deve ser o id do cliente e o valor deve ser um vetor que contendo todas as compras do cliente.
 
+(defn get-client-purchases
+  [mapa purchase]
+  (let [{id :client-id} purchase
+        client-purchases (get mapa id [])]
+    (->> (dissoc purchase :client-id)
+         (conj client-purchases) ;;
+         (assoc mapa id))))
 
+(defn purchases-by-clients
+  [clients]
+  (reduce get-client-purchases {} clients));; inicia o acumulador mandando um mapa vazio
+
+(comment
+  (purchases-by-clients data/purchases)
+  )
 ;; retornar o vetor de clientes com a chave `:purchases`. O valor dessa chave sera um vetor contendo mapas com `:item-id` e `:amount`.
