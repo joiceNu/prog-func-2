@@ -45,4 +45,8 @@
 
 ;; retorna o nome do cliente
 
-(defn retorna-)
+(defn retorna-nome-cliente
+  [cliente]
+  (:nome cliente))
+
+(retorna-nome-cliente data/cliente)
