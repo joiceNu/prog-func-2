@@ -17,16 +17,32 @@
 
 ;; retornar o cliente na posic�o `p` do vetor clientes.
 (def pega-por-posicao-vet
-  [posicao])
+  [posicao]
 (get data/clientes-vetor posicao))
 
 
 ;; retornar o nome do cliente mais novo do vetor `clientes`.
+(peek data/clientes-vetor)
+
+
 
 ;; remover o cliente mais novo do vetor `clientes`.
+(pop data/clientes-vetor)
 
 ;; retornar o nome do cliente mais antigo do vetor `clientes`.
+(-> data/clientes-vetor
+    (first)
+    :first-name
+    )
+
 
 ;; remover o cliente mais antigo do vetor `clientes`.
+(rest data/clientes-vetor)
 
-;; remover do vetor `clientes` os clientes com o `last-year-revenue` menor que 50000 (dica: usar `remove` ou `filter`, procurar na documentac�o);
+
+;; remover do vetor `clientes` os clientes com o `last-year-revenue` menor que 50000
+;; (dica: usar `remove` ou `filter`, procurar na documentac�o);
+(->> data/clientes-vetor
+     (remove #(> (get % :last-year-revenue) 50000))
+     )
+
