@@ -9,7 +9,8 @@
          :compras} mapa]
   primeira-compra-cliente))
 
-;; escrever uma funcao que adiciona a compra {:item "mesa" :valor 250} no vetor de compras de um cliente, dado o ID. Deve retornar o mapa inteiro.
+;; escrever uma funcao que adiciona a compra {:item "mesa" :valor 250}
+;; no vetor de compras de um cliente, dado o ID. Deve retornar o mapa inteiro.
 
 ;; com assoc-in
 (defn adiciona-compra
@@ -18,10 +19,7 @@
     (assoc-in mapa [:compras id]
               (conj compras-cliente nova-compra))))
 
-;; com update-in
-(defn adiciona-compra2
-  [mapa id nova-compra]
-  (update-in mapa [:compras id] conj nova-compra))
+
 
 ;; escrever uma funcao que da desconto de 10% para o primeiro item de compra do cliente dado o ID. Deve retornar o mapa inteiro
 
@@ -32,8 +30,4 @@
     (assoc-in mapa [:compras id 0 :valor] (* 0.9 valor-primeira-compra))))
 
 
-;; com update-in
-(defn adiciona-desconto2
-  [mapa id]
-  (update-in mapa [:compras id 0 :valor] #(* 0.9 %)))
 
